@@ -47,4 +47,10 @@ Route::get('/tag/edit/{id}', 'TagController@edit')->name('tag.edit');
 Route::post('/tag/update/{id}', 'TagController@update')->name('tag.update');
 Route::get('/tag/destroy/{id}', 'TagController@destroy')->name('tag.destroy'); //softdelete
 Route::get('/tag/hdelete/{id}', 'TagController@hdelete')->name('tag.hdelete'); //hard delete
-Route::get('/tag/restore/{id}', 'TagController@restore')->name('tag.restore');;
+Route::get('/tag/restore/{id}', 'TagController@restore')->name('tag.restore');
+
+//thi routes for user
+Route::get('/users', 'UserController@index')->name('users');
+Route::get('/user/create', 'UserController@create')->name('user.create');
+Route::post('/user/store', 'UserController@store')->name('user.store');
+Route::get('/user/destroy/{id}', 'UserController@destroy')->name('user.destroy');

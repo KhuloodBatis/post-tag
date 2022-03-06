@@ -1,19 +1,14 @@
 @extends('layouts.app')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-{!! NoCaptcha::renderJs() !!}
-
 
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Register') }}</div>
+                    <div class="card-header">Create Users</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}">
+                        <form method="POST" action="{{ route('user.store') }}">
                             @csrf
 
                             <div class="form-group row">
@@ -71,23 +66,6 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control"
                                         name="password_confirmation" required autocomplete="new-password">
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="password-confirm"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                                <div class="col-md-6">
-                                    <div class="{{ $errors->has('g-recaptcha-response') ? 'has-error' : '' }}">
-
-                                        {!! NoCaptcha::display(['data-theme' => 'dark']) !!}
-                                    </div>
-                                    @if ($errors->has('g-recaptcha-response'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
-                                        </span>
-                                    @endif
                                 </div>
                             </div>
 
