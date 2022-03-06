@@ -67,7 +67,7 @@ class PostController extends Controller
             //to genrate the title randomely
             'slug' => str_slug($request->title),
         ]);
-
+        //to allows user store the tag
         $post->tag()->attach($request->tags);
 
         return redirect()->back();
